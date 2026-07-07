@@ -31,6 +31,7 @@ if uploaded_file is not None:
 
     # Main content
     st.title("Quellenübersicht")
+    st.write("Testdaten gibt es <a href='https://github.com/kick-ban-ignore/sourcery/blob/main/data.csv' target='_blank' rel='noopener noreferrer'> hier auf Github.</a>")
     st.write("Hier werden die gefilterten Quellen angezeigt:")
 
     # --- TAB: filters 

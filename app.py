@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from custom_css import get_bird_css, get_bird_html
 
 ###
 ### "Sourcery" - your little helper when dealing with scientific sources when writing your PhD thesis. 
@@ -11,8 +12,11 @@ import pandas as pd
 # Page Config
 st.set_page_config(page_title="Sourcery - Quellenübersicht", layout="wide")
 
-# Title
-st.sidebar.markdown("<h1 style='font-size: 5rem;'>\U0001F426</h1>", unsafe_allow_html=True)
+# Title - Add custom CSS first
+st.markdown(get_bird_css(), unsafe_allow_html=True)
+
+# Bird with hover effect
+st.sidebar.markdown(get_bird_html(), unsafe_allow_html=True)
 st.sidebar.markdown("<p style='font-size: 20px;'>Sourcery - Quellenübersicht</p>", unsafe_allow_html=True)
 
 # File upload in sidebar
@@ -31,8 +35,6 @@ if uploaded_file is not None:
 
     # Main content
     st.title("Quellenübersicht")
-    st.write("Testdaten gibt es <a href='https://github.com/kick-ban-ignore/sourcery/blob/main/data.csv' target='_blank' rel='noopener noreferrer'> hier auf Github.</a>")
-    st.write("Hier werden die gefilterten Quellen angezeigt:")
 
     # --- TAB: filters 
     st.sidebar.header('Einstellungen')
@@ -98,4 +100,4 @@ if uploaded_file is not None:
     st.dataframe(display_df, use_container_width=True)
 
 else:
-    st.info("Bitte lade eine CSV-Datei hoch, um die Daten anzuzeigen.")
+    st.info("Bitte lade eine CSV-Datei hoch, um die Daten anzuzeigen. Testdaten gibt's [hier auf Github](https://github.com/kick-ban-ignore/sourcery/blob/main/data.csv).")
